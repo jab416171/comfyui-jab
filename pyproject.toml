@@ -1,0 +1,17 @@
+#  Edit the following fields to match your project
+
+[project]
+name = "comfyui-jab"
+description = "A ComfyUI custom node package for interacting with an OpenAI-compatible API."
+version = "1.0.0"
+license = {file = "LICENSE"}
+dependencies = ["requests>=2.28.0",]
+
+[project.urls]
+Repository = "https://github.com/jab416171/comfyui-jab"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = "jab416171"
+DisplayName = "ComfyUI-jab"
+Icon = ""
