@@ -5,7 +5,12 @@ name = "comfyui-jab"
 description = "A ComfyUI custom node package for interacting with an OpenAI-compatible API."
 version = "1.0.0"
 license = {file = "LICENSE"}
-dependencies = ["requests>=2.28.0",]
+dependencies = [
+    "numpy>=2.5.2",
+    "pillow>=12.3.0",
+    "requests>=2.28.0",
+    "tqdm>=4.70.0",
+]
 
 [project.urls]
 Repository = "https://github.com/jab416171/comfyui-jab"
