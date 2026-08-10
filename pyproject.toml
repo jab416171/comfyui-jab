@@ -3,7 +3,7 @@
 [project]
 name = "comfyui-jab"
 description = "A ComfyUI custom node package for interacting with an OpenAI-compatible API."
-version = "1.0.0"
+version = "1.0.1"
 license = {file = "LICENSE"}
 dependencies = [
     "numpy>=2.5.2",

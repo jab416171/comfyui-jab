@@ -32,6 +32,8 @@ try:
             )
 
         base_url = base_url.rstrip("/")
+        while base_url.endswith("/v1"):
+            base_url = base_url[:-3]
         try:
             response = req.get(f"{base_url}/v1/models", timeout=10)
             response.raise_for_status()

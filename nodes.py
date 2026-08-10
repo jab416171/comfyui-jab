@@ -28,9 +28,17 @@ custom_nodes_output_dir = os.path.join(
 )
 
 
+def _normalize_base_url(base_url: str) -> str:
+    """Remove trailing slashes and /v1 suffix from base_url to avoid double paths."""
+    base_url = base_url.rstrip("/")
+    while base_url.endswith("/v1"):
+        base_url = base_url[:-3]
+    return base_url
+
+
 def _get_dynamic_model_list(base_url: str) -> List[str]:
     """Fetch model list from the API at the given base_url."""
-    base_url = base_url.rstrip("/")
+    base_url = _normalize_base_url(base_url)
     try:
         response = requests.get(f"{base_url}/v1/models", timeout=10)
         response.raise_for_status()
@@ -191,8 +199,8 @@ class OpenAIPrompt:
         # Determine the prompt content based on mode
         prompt = prompt_text
 
-        # Ensure base_url doesn't have trailing slash
-        base_url = base_url.rstrip("/")
+        # Normalize base_url to avoid double paths like /v1/v1
+        base_url = _normalize_base_url(base_url)
 
         if not model or model.startswith("Error:"):
             logger.debug("Early return: model=%r", model)
